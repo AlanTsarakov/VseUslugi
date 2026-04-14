@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VseUslugi.Data;
+using VseUslugi.Models;
 
 namespace VseUslugi.Controllers
 {
@@ -14,6 +15,8 @@ namespace VseUslugi.Controllers
         {
             this.appealRepository = productRepository;
         }
+
+
 
 
         // GET: ServiceController
@@ -56,6 +59,19 @@ namespace VseUslugi.Controllers
         {
             var appeal = appealRepository.TryGetById(id);
             return View(appeal);
+        }
+
+        public ActionResult AddAppeal()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddAppeal(string Name, string Description)
+        {
+            appealRepository.Add(Name, Description);
+            var allAppeals = appealRepository.GetAll();
+            return View("Index", allAppeals);
         }
 
         // POST: ServiceController/Edit/5

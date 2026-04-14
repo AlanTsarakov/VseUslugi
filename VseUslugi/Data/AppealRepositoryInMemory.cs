@@ -15,7 +15,11 @@ namespace VseUslugi.Data
         {
             return appeals;
         }
-
+        public void Add(string Name, string Decription)
+        {
+            var appeal = new Appeal(Name, Decription);
+            appeals.Add(appeal);
+        }
         public Appeal? TryGetById(Guid id)
         {
             return appeals.FirstOrDefault(product => product.Id == id);

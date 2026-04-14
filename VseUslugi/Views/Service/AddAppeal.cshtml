@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="container mt-3" style="max-width: 500px;">
+    <h3>Новое обращение</h3>
+
+    <form method="post" action="~/Service/AddAppeal">
+        <div class="mb-3">
+            <label for="newTicket" class="form-label">Тема</label>
+            <input type="text" class="form-control" name="Name" id="newTicket" placeholder="Ужасный кот">
+        </div>
+
+        <div class="mb-3">
+            <label for="newTicket" class="form-label">Что случилось?</label>
+            <input type="text" class="form-control" name="Decription" id="newTicket" placeholder="Например: Кот скачал весь интернет">
+        </div>
+
+        <button type="submit" class="btn btn-success text-white">Создать</button>
+        <button type="button" class="btn btn-link text-secondary">Назад</button>
+    </form>
+</div>

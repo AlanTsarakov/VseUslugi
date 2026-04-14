@@ -6,5 +6,7 @@ namespace VseUslugi.Data
     {
         List<Appeal> GetAll();
         Appeal? TryGetById(Guid id);
+
+        public void Add(string Name, string Decription);
     }
 }
