@@ -1,3 +1,5 @@
+using VseUslugi.Data;
+
 namespace VseUslugi
 {
     public class Program
@@ -8,6 +10,8 @@ namespace VseUslugi
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<IAppealRepository, AppealRepositoryInMemory>();
+
 
             var app = builder.Build();
 

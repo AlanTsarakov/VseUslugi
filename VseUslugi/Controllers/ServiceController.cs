@@ -1,14 +1,26 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using VseUslugi.Data;
 
 namespace VseUslugi.Controllers
 {
     public class ServiceController : Controller
     {
+
+
+        IAppealRepository appealRepository;
+
+        public ServiceController(IAppealRepository productRepository)
+        {
+            this.appealRepository = productRepository;
+        }
+
+
         // GET: ServiceController
         public ActionResult Index()
         {
-            return View();
+            var allAppeals = appealRepository.GetAll();
+            return View(allAppeals);
         }
 
         // GET: ServiceController/Details/5
