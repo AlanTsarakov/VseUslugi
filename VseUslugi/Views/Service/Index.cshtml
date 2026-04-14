@@ -7,25 +7,33 @@
             <tr>
                 <th scope="col" style="width: 10%">ID</th>
                 <th scope="col">Название обращения</th>
+                <th scope="col">Обращение</th>
                 <th scope="col" style="width: 20%">Действие</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>101</td>
-                <td>Не работает вход в личный кабинет</td>
-                <td><button class="btn btn-sm btn-primary">Открыть</button></td>
+            @foreach (var item in @Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                <td><a class="btn btn-outline-primary" asp-controller="Service" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a></td>
             </tr>
+            }
             <tr>
                 <td>102</td>
                 <td>Ошибка при оплате заказа #456</td>
-                <td><button class="btn btn-sm btn-primary">Открыть</button></td>
+                <td>Ошибка при оплате заказа #456</td>
+                <td><button class="btn btn-sm btn-primary">Редактировать</button></td>
             </tr>
             <tr>
                 <td>103</td>
                 <td>Запрос на изменение почты</td>
-                <td><button class="btn btn-sm btn-primary">Открыть</button></td>
+                <td>Ошибка при оплате заказа #456</td>
+                <td><button class="btn btn-sm btn-primary">Редактировать</button></td>
             </tr>
         </tbody>
     </table>
+    <button class="btn btn-sm btn-primary">Добавить новое обращение</button>
 </div>

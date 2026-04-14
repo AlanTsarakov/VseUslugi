@@ -1,18 +1,25 @@
-﻿namespace VseUslugi.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace VseUslugi.Models
 {
     public class Appeal
     {
-        public Appeal(Guid id, string name, string description)
+        public Appeal(string name, string description)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             Name = name;
             Description = description;
         }
 
-        Guid Id { get; set; }
+        
+        public Guid Id { get; set; }
 
+
+        [Required(ErrorMessage = "Не указано имя/тема")]
         public string Name { get; set; }
 
+
+        [Required(ErrorMessage = "Не указано описание")]
         public string Description { get; set; }
 
 

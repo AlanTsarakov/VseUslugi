@@ -50,10 +50,12 @@ namespace VseUslugi.Controllers
             }
         }
 
+
         // GET: ServiceController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            var appeal = appealRepository.TryGetById(id);
+            return View(appeal);
         }
 
         // POST: ServiceController/Edit/5
